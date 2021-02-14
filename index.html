@@ -10,16 +10,33 @@
 <body>
     <div id="encryptionArea" class="interactiveContainer">
 
-        <p class="encryptTitle">Encrypt</p>
+        <p id="encryptTitle">Encrypt</p>
+        <textarea id="encryptionString" placeholder="Type your message here and hit enter!"></textarea>
+
+        <div class="keyInputContainer">
+
+            <label for="encryptionKey">Encryption-Key (3-25):</label>
+            <input type="number" id="encryptionKey" min="3" max="25">
+
+        </div>
 
     </div>
 
     <div id="decryptionArea" class="interactiveContainer">
 
-        <p class="decryptTitle">Decrypt</p>
+        <p id="decryptTitle">Decrypt</p>
+        <textarea id="decryptionString" placeholder="Enter your encrypted message and hit enter!"></textarea>
+
+        <div class="keyInputContainer">
+
+            <label for="decryptionKey">Decryption-Key (3-25):</label>
+            <input type="number" id="decryptionKey" min="3" max="25">
+
+        </div>
 
     </div>
 </body>
 
-<script src="main.js" type="text/javascript" rel="script"></script>
+<script src="animations.js" type="text/javascript" rel="script"></script>
+<script src="app.js" type="text/javascript" rel="script"></script>
 </html>
