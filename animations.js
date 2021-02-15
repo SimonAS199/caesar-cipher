@@ -1,34 +1,71 @@
 const interactiveContainers = document.querySelectorAll(".interactiveContainer");
-const encryptContainer = interactiveContainers[0];
-const decryptContainer = interactiveContainers[1];
+const encryptInputs = document.querySelectorAll(".invisible");
+const decryptInputs = document.querySelectorAll(".invisible2");
 
 const openContainer = (container) => {
+
     container.children.item(0).classList.remove("appear");
     container.children.item(0).classList.add("dissipate");
 
     setTimeout(() => {
         container.classList.remove("closed");
         container.classList.add("opened");
-    }, 1000)
+    }, 500)
 
     setTimeout(() => {
         container.children.item(0).classList.remove("dissipate");
         container.children.item(0).classList.add("appear");
-    }, 3000)
+
+        if (container === interactiveContainers[0]){
+            encryptInputs.forEach(input => {
+                input.classList.remove("invisible");
+                input.classList.remove("dissipate");
+                input.classList.add("appear");
+            })
+        } else {
+            decryptInputs.forEach(input => {
+                input.classList.remove("invisible2");
+                input.classList.remove("dissipate");
+                input.classList.add("appear");
+            })
+        }
+    }, 1500)
 
 }
 
 const closeContainer = (container) => {
-    container.children.item(0).classList.remove("appear");
-    container.children.item(0).classList.add("dissipate");
+
     
     container.classList.remove("opened");
     container.classList.add("closed");
 
+    container.children.item(0).classList.remove("appear");
+    container.children.item(0).classList.add("dissipate");
+
+    if (container === interactiveContainers[0]){
+        encryptInputs.forEach(input => {
+            input.classList.remove("appear");
+            input.classList.add("dissipate");
+
+            setTimeout(() => {
+                input.classList.add("invisible");
+            },500)
+        })
+    } else {
+        decryptInputs.forEach(input => {
+            input.classList.remove("appear");
+            input.classList.add("dissipate");
+
+            setTimeout(() => {
+                input.classList.add("invisible2");
+            },500)
+        })
+    }
+
     setTimeout(() => {
         container.children.item(0).classList.remove("dissipate");
         container.children.item(0).classList.add("appear");
-    }, 3000)
+    }, 1500)
 
 }
 
@@ -41,7 +78,7 @@ interactiveContainers.forEach(container => {
 
                     setTimeout(() => {
                         openContainer(container);
-                    }, 3000)
+                    }, 1500)
                 } else if (container.classList.contains("opened")) {
                     return;
                 } else /*if (container.classList.contains("closed") || !container.classList.contains("opened"))*/{
@@ -55,7 +92,7 @@ interactiveContainers.forEach(container => {
 
                     setTimeout(() => {
                         openContainer(container);
-                    }, 3000)
+                    }, 1500)
                 } else if (container.classList.contains("opened")) {
                     return;
                 } else /*if (container.classList.contains("closed") || !container.classList.contains("opened"))*/

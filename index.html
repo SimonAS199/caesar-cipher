@@ -11,28 +11,34 @@
     <div id="encryptionArea" class="interactiveContainer">
 
         <p id="encryptTitle">Encrypt</p>
-        <textarea id="encryptionString" placeholder="Type your message here and hit enter!"></textarea>
 
-        <div class="keyInputContainer">
+            <textarea class="invisible" id="encryptionString" placeholder="Type your message here, choose your key and hit enter!"></textarea>
 
-            <label for="encryptionKey">Encryption-Key (3-25):</label>
-            <input type="number" id="encryptionKey" min="3" max="25">
+            <div class="keyInputContainer invisible">
 
-        </div>
+                <label for="encryptionKey">Encryption-Key:</label>
+                <input type="number" id="encryptionKey" min="3" max="25">
+
+            </div>
+
+            <textarea class="invisible" id="encryptionOut" readonly></textarea>
 
     </div>
 
     <div id="decryptionArea" class="interactiveContainer">
 
         <p id="decryptTitle">Decrypt</p>
-        <textarea id="decryptionString" placeholder="Enter your encrypted message and hit enter!"></textarea>
 
-        <div class="keyInputContainer">
+            <textarea class="invisible2" id="decryptionString" placeholder="Enter your encrypted message, choose your key and hit enter!"></textarea>
 
-            <label for="decryptionKey">Decryption-Key (3-25):</label>
-            <input type="number" id="decryptionKey" min="3" max="25">
+            <div class="keyInputContainer invisible2">
 
-        </div>
+                <label for="decryptionKey">Decryption-Key:</label>
+                <input type="number" id="decryptionKey" min="3" max="25">
+
+            </div>
+
+            <textarea id="decryptionOut" class="invisible2" readonly></textarea>
 
     </div>
 </body>
